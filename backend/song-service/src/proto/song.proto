@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package song;
+
+message SongRequest {
+    string id = 1;
+}
+
+message SongResponse {
+    string id = 1;
+    string title = 2;
+    string artist = 3;
+    string album = 4;
+    int32 year = 5;
+    int32 duration = 6;
+}
+
+message Empty {
+    
+}
+
+service SongService {
+    //Unary call
+    rpc GetSong(SongRequest) returns (SongResponse);
+    //Streaming call
+    rpc StreamSongs(Empty) returns (stream SongResponse);
+}
