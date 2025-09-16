@@ -36,7 +36,7 @@ const uploadSongs = async() => {
             //Duplicate
             const existingSong = await Song.findOne({ title });
             if(existingSong){
-                console.log(`⚠️ Skipped (already in DB): ${title}`);
+                console.log(`Skipped (already in DB): ${title}`);
                 continue;
             }
 
@@ -62,7 +62,6 @@ const uploadSongs = async() => {
                 album,
                 artists,
                 year,
-                duration: null,
                 audioUrl
             })
             await song.save()

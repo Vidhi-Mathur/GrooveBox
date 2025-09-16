@@ -6,11 +6,23 @@ const song = new mongoose.Schema({
         required: true, 
         unique: true
     },
-    artists: [String],  
-    album: String,
-    year: Number,
-    duration: Number,
-    audioUrl: String    
+    artists: [{
+        type: String,
+        required: true
+    }],  
+    album: {
+        type: String,
+        required: true
+    },
+    year: {
+        type: Number,
+        required: true
+    },
+    audioUrl: {
+        type: String,
+        required: true, 
+        unique: true
+    }   
 });
 
 export const Song = mongoose.model("Song", song);
