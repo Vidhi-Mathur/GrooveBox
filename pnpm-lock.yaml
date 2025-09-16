@@ -8,7 +8,17 @@ importers:
 
   .: {}
 
-  backend/playlist-service: {}
+  backend/playlist-service:
+    dependencies:
+      '@grpc/grpc-js':
+        specifier: ^1.13.4
+        version: 1.13.4
+      '@grpc/proto-loader':
+        specifier: ^0.8.0
+        version: 0.8.0
+      mongoose:
+        specifier: ^8.18.1
+        version: 8.18.1
 
   backend/song-service:
     dependencies:

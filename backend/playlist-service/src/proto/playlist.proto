@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package playlist;
+
+message PlaylistRequest {
+    string id = 1;
+}
+
+message PlaylistResponse {
+    string id = 1;
+    string name = 2;
+    repeated string songId = 3;
+    string userId = 4;
+}
+
+service PlaylistService {
+    rpc getPlaylist(PlaylistRequest) returns (PlaylistResponse);
+    rpc createPlaylist(PlaylistRequest) returns (PlaylistResponse);
+    rpc updatePlaylist(PlaylistRequest) returns (PlaylistResponse);
+    rpc deletePlaylist(PlaylistRequest) returns (PlaylistResponse);
+}
