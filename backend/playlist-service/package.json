@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon --exec ts-node src/app.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/app.js",
+    "start:prod": "npm run build && npm run start"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +15,13 @@
   "dependencies": {
     "@grpc/grpc-js": "^1.13.4",
     "@grpc/proto-loader": "^0.8.0",
+    "dotenv": "^17.2.2",
     "mongoose": "^8.18.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
   }
 }

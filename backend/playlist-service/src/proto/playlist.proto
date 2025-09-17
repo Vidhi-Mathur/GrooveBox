@@ -2,8 +2,24 @@ syntax="proto3";
 
 package playlist;
 
-message PlaylistRequest {
+message PlaylistIDRequest {
     string id = 1;
+}
+
+message PlaylistIDResponse {
+    string id = 1;
+}
+
+message CreatePlaylistRequest {
+    string name = 1;
+    repeated string songId = 2;
+    string userId = 3;
+}
+
+message UpdatePlaylistRequest {
+    string id = 1;
+    string name = 2;
+    repeated string songId = 3;
 }
 
 message PlaylistResponse {
@@ -14,8 +30,8 @@ message PlaylistResponse {
 }
 
 service PlaylistService {
-    rpc getPlaylist(PlaylistRequest) returns (PlaylistResponse);
-    rpc createPlaylist(PlaylistRequest) returns (PlaylistResponse);
-    rpc updatePlaylist(PlaylistRequest) returns (PlaylistResponse);
-    rpc deletePlaylist(PlaylistRequest) returns (PlaylistResponse);
+    rpc GetPlaylist(PlaylistIDRequest) returns (PlaylistResponse);
+    rpc CreatePlaylist(CreatePlaylistRequest) returns (PlaylistIDResponse);
+    rpc UpdatePlaylist(UpdatePlaylistRequest) returns (PlaylistIDResponse);
+    rpc DeletePlaylist(PlaylistIDRequest) returns (PlaylistIDResponse);
 }
